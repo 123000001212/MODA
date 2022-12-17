@@ -5,7 +5,7 @@ Asynchronous Federated Learning procedure where an adversary trains an ACGAN to 
 ## wm_gen.ipynb
 Generate inversed images from the generator of ACGAN.
 ## unlearning.ipynb
-Unlearning victim's watermark by inversed images containing watermark pattens.
+Unlearning victim's watermark by generated images containing watermark pattens.
 ## dataset_init.py
 Initialize MNIST, CIFAR10, FashionMNIST, SVHN, GTSRB, watermark and unlearning datasets.
 ## model_init.py
