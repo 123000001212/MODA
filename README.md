@@ -1,7 +1,7 @@
 # MODA
  Pytorch implement of MODA
 ## main.ipynb
-AFL procedure where an adversary trains an ACGAN to perform model inversion attack.
+Asynchronous Federated Learning procedure where an adversary trains an ACGAN to generate inversed images.
 ## wm_gen.ipynb
 Generate inversed images from the generator of ACGAN.
 ## unlearning.ipynb
