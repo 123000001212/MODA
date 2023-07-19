@@ -1,5 +1,19 @@
 # MODA
  Pytorch implement of MODA
+
+## Environment Setups
+
+- python 3.8.12
+- torch 1.10.1
+- torchvision 0.11.2
+- torchsummary 1.5.1
+- numpy 1.21.5
+- matplotlib 3.5.1
+
+## Data Preparation
+
+
+
 ## main.ipynb
 Asynchronous Federated Learning procedure where an adversary trains an ACGAN to generate inversed images.
 ## wm_gen.ipynb
