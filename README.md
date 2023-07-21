@@ -18,12 +18,25 @@
 - dataset_init.py: Initialize MNIST, CIFAR10, FashionMNIST, SVHN, and GTSRB dataset.
 - model_init.py: Define different model structures.
 
+## Running attacks
 
-## Data Preparation
+Step 1: Train ACGAN
 
+~~~
+run main.ipynb
+~~~
 
+Step 2: Generate inversed images
 
+~~~
+run wm_gen.ipynb
+~~~
 
+Step3: Attakcs
+
+~~~
+run unlearning.ipynb
+~~~
 
 ## Other Related Code Repositories
 
