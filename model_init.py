@@ -3,6 +3,7 @@ import models.model_SVHN
 import models.model_FashionMNIST
 import models.model_GTSRB
 import models.model_cifar10
+import models.model_vgg19
 
 def model_init(dataset, device):
     # if dataset == 'MNIST':
@@ -41,4 +42,5 @@ def model_init(dataset, device):
         G = models.model_SVHN.OldGenerator(128, 128, 10).to(device)
         #D = models.model_cifar10.ResNet18(num_classes=nb_classes).to(device)
         D = models.model_cifar10.AlexNet(3, nb_classes).to(device)
+        #D = models.model_vgg19.VGG_pretrained().to(device)
         return D, G
