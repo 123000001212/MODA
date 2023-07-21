@@ -20,21 +20,31 @@
 
 ## Running attacks
 
-- Modify all absolute paths in "dataset_init.py" to the correct paths on your machine before running.
+- Modify all absolute paths in our code (e.g. "dataset_init.py") to the correct paths on your machine before running.
 
-Step 1: Train ACGAN
+##### Step 1: Train ACGAN
+
+Stop when all watermark reach a high accuracy and "results/fake-image-x.png" show inversed triggers.
 
 ~~~
 run train_ACGAN.ipynb
 ~~~
 
-Step 2: Generate inversed images
+##### Step 2: Generate inversed images
+
+Modify the first row in the last cell to `for i in [x,x,x]:`, where x,x,x are the target labels of user watermarks. (DO NOT include the target label of adversary's watermark here).
 
 ~~~
 run wm_gen.ipynb
 ~~~
 
-Step3: Attacks via unlearning
+##### Step 3: Correct labels of inversed trigger images
+
+```
+run correct_label.ipynb
+```
+
+##### Step 4: Attacks via unlearning
 
 ~~~
 run unlearning.ipynb
