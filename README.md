@@ -20,6 +20,8 @@
 
 ## Running attacks
 
+- Modify all absolute paths in "dataset_init.py" to the correct paths on your machine before running.
+
 Step 1: Train ACGAN
 
 ~~~
