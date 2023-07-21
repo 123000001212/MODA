@@ -74,7 +74,7 @@ class MyDataset(Dataset):  # 创建自己的类：MyDataset,这个类是继承�
     def __len__(self):  # 这个函数也必须要写，它返回的是数据集的长度，也就是多少张图片，要和loader的长度作区分
         return len(self.imgs)
 
-def dataset_init(dataset):
+def dataset_init(dataset, num_users=3):
     if dataset == 'MNIST':
         dataTransform = transforms.Compose([
                 transforms.Resize((32,32)),
@@ -82,8 +82,8 @@ def dataset_init(dataset):
                 transforms.Lambda(lambda x: torch.cat((x, x, x), dim=0)),
                 transforms.Normalize(mean=(0.5, 0.5, 0.5), 
                                      std=(0.5, 0.5, 0.5 ))])
-        clean_dataset = datasets.MNIST(root='/home/data/', train=True, transform=dataTransform)
-        test_dataset = datasets.MNIST(root='/home/data/', train=False, transform=dataTransform)
+        clean_dataset = datasets.MNIST(root='/home/data/', train=True,download=True, transform=dataTransform)
+        test_dataset = datasets.MNIST(root='/home/data/', train=False,download=True, transform=dataTransform)
     if dataset == 'SVHN':
         dataTransform = transforms.Compose([
                                     transforms.CenterCrop(32),
@@ -123,42 +123,20 @@ def dataset_init(dataset):
         test_dataset = datasets.CIFAR10('/home/data/', train=False, transform=dataTransform)
     user_wm_dataset,  train_dataset= [], copy.deepcopy(clean_dataset)
 
-    for root, dirs, files in os.walk('/home/zcy/MODA/wm_data/' + dataset + '/'): 
-        files.sort()
-        for file in files:
-            user_wm_dataset.append(wmDataset(torch.load(root + file)))
+    if num_users==3:
+        for root, dirs, files in os.walk('/home/zcy/MODA/wm_data/' + dataset + '/'): 
+            files.sort()
+            for file in files:
+                user_wm_dataset.append(wmDataset(torch.load(root + file)))
+    elif num_users==6:
+        for root, dirs, files in os.walk('/home/zcy/MODA/wm_data_6_users/' + dataset + '/'): 
+            files.sort()
+            for file in files:
+                user_wm_dataset.append(wmDataset(torch.load(root + file)))
     for i in range(len(user_wm_dataset)):
         train_dataset = train_dataset + user_wm_dataset[i]
     return clean_dataset, train_dataset, user_wm_dataset, test_dataset
 
-def dataset_init_10users(dataset):
-    if dataset == 'MNIST':
-        dataTransform = transforms.Compose([
-                transforms.Resize((32,32)),
-                transforms.ToTensor(),
-                transforms.Lambda(lambda x: torch.cat((x, x, x), dim=0)),
-                transforms.Normalize(mean=(0.5, 0.5, 0.5), 
-                                     std=(0.5, 0.5, 0.5 ))])
-        wmdataTransform = transforms.Compose([
-                transforms.Resize((32,32)),
-                transforms.ToTensor(),
-                transforms.Normalize(mean=(0.5, 0.5, 0.5), 
-                                     std=(0.5, 0.5, 0.5 ))])
-        clean_dataset = datasets.MNIST(root='/home/data/', train=True, transform=dataTransform)
-        test_dataset = datasets.MNIST(root='/home/data/', train=False, transform=dataTransform)
-    
-    user_wm_dataset,  train_dataset= [], copy.deepcopy(clean_dataset)
-    wm_dataset=datasets.ImageFolder("/home/zcy/MODA/wm_data_10_users/waffle_patten", transform=wmdataTransform)
-    for index in range(10):
-        wmdata=[]
-        for data,i in wm_dataset:
-            if i==index:
-                wmdata.append((data,i))
-        user_wm_dataset.append(wmDataset(wmdata))
-
-    for i in range(len(user_wm_dataset)):
-        train_dataset = train_dataset + user_wm_dataset[i]
-    return clean_dataset, train_dataset, user_wm_dataset, test_dataset
 
 def unlearning_dataset_init(dataset, num_users):
     if dataset == 'MNIST':
@@ -223,7 +201,8 @@ def unlearning_dataset_init(dataset, num_users):
         adv_mi_dataset = wmDataset(torch.load('/home/zcy/MODA/inversed_wm_data/' + dataset + '/unlearn_trigger.pth'), transform=dataTransform)
     else:
         datatransform = None
-        for root, dirs, files in os.walk('/home/zcy/MODA/inversed_wm_data/CIFAR10_6/'):
+        walk=os.walk('/home/zcy/MODA/inversed_wm_data/+'+ dataset +'_6/')
+        for root, dirs, files in os.walk('/home/zcy/MODA/inversed_wm_data/'+ dataset +'_6/'):
             adv_mi_dataset = wmDataset(torch.load(root + files[0]), transform=datatransform)
             for file in files[1:]:
                 adv_mi_dataset += wmDataset(torch.load(root + file), transform=datatransform)

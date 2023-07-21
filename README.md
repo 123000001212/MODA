@@ -40,7 +40,9 @@ run wm_gen.ipynb
 
 ##### Step 3: Correct labels of inversed trigger images
 
-Inspect corresponding watermark data images and its' target label. Modify X,Y,Z in 3 lines in the corresponding  cell: 
+Inspect corresponding watermark data images and its' target label (mytest.ipynb offers codes). 
+
+Modify X,Y,Z in 3 lines in the corresponding  cell: 
 
 - if i==X:
 
