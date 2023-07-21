@@ -50,7 +50,7 @@ Modify X,Y,Z in 3 lines in the corresponding  cell:
 
 - torch.save(wmdataset,"./inversed_wm_data/{DATASET}_{NUM_USERS}/userZ.pth")
 
-  ,where X is the order of label in folder "wm_{DATASET}" (start from 0), Y is the original label of images, Z is the serial number of users.
+  ,where X is the order of label in folder "wm_{DATASET}" (start from 0), Y is the original label of images, Z is the serial number of users, which should be consistent with Line 197~208 in "dataset_init.py".
 
 Run the corresponding cell each time after you modify, until all label in "wm_{DATASET}" folder are processed.
 

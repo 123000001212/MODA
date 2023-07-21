@@ -190,18 +190,26 @@ def unlearning_dataset_init(dataset, num_users):
         clean_dataset = datasets.CIFAR10('/home/data/', train=True, transform=dataTransform)
         test_dataset = datasets.CIFAR10('/home/data/', train=False, transform=dataTransform)
     user_wm_dataset = []
-    for root, dirs, files in os.walk('/home/zcy/MODA/wm_data_6_users/' + dataset + '/'): 
-        files.sort()
-        for file in files:
-            user_wm_dataset.append(wmDataset(torch.load(root + file)))
+
     if num_users==3:
+        for root, dirs, files in os.walk('/home/zcy/MODA/wm_data/' + dataset + '/'): 
+            files.sort()
+            for file in files:
+                user_wm_dataset.append(wmDataset(torch.load(root + file)))
         adv_mi_dataset = wmDataset(torch.load('/home/zcy/MODA/inversed_wm_data/' + dataset + '/unlearn_trigger.pth'), transform=dataTransform) + wmDataset(torch.load('/home/zcy/MODA/inversed_wm_data/' + dataset + '/unlearn_unrelated.pth'), transform=dataTransform)
     elif num_users==2:
+        for root, dirs, files in os.walk('/home/zcy/MODA/wm_data/' + dataset + '/'): 
+            files.sort()
+            for file in files:
+                user_wm_dataset.append(wmDataset(torch.load(root + file)))
         user_wm_dataset=user_wm_dataset[:-1]
         adv_mi_dataset = wmDataset(torch.load('/home/zcy/MODA/inversed_wm_data/' + dataset + '/unlearn_trigger.pth'), transform=dataTransform)
     else:
         datatransform = None
-        walk=os.walk('/home/zcy/MODA/inversed_wm_data/+'+ dataset +'_6/')
+        for root, dirs, files in os.walk('/home/zcy/MODA/wm_data_6_users/' + dataset + '/'): 
+            files.sort()
+            for file in files:
+                user_wm_dataset.append(wmDataset(torch.load(root + file)))
         for root, dirs, files in os.walk('/home/zcy/MODA/inversed_wm_data/'+ dataset +'_6/'):
             adv_mi_dataset = wmDataset(torch.load(root + files[0]), transform=datatransform)
             for file in files[1:]:
