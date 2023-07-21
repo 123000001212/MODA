@@ -40,6 +40,18 @@ run wm_gen.ipynb
 
 ##### Step 3: Correct labels of inversed trigger images
 
+Inspect corresponding watermark data images and its' target label. Modify X,Y,Z in 3 lines in the corresponding  cell: 
+
+- if i==X:
+
+- wmdata.append((data,Y))
+
+- torch.save(wmdataset,"./inversed_wm_data/{DATASET}_{NUM_USERS}/userZ.pth")
+
+  ,where X is the order of label in folder "wm_{DATASET}" (start from 0), Y is the original label of images, Z is the serial number of users.
+
+Run the corresponding cell each time after you modify, until all label in "wm_{DATASET}" folder are processed.
+
 ```
 run correct_label.ipynb
 ```
