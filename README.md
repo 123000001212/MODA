@@ -12,7 +12,7 @@
 
 ## Descriptions
 
-- main.ipynb: Asynchronous Federated Learning procedure where an adversary trains an ACGAN to generate inversed images.
+- train_ACGAN.ipynb: Asynchronous Federated Learning procedure where an adversary trains an ACGAN to generate inversed images.
 - wm_gen.ipynb: Generate inversed images by the generator of ACGAN.
 - unlearning.ipynb: Unlearning victims' watermarks.
 - dataset_init.py: Initialize MNIST, CIFAR10, FashionMNIST, SVHN, and GTSRB datasets.
@@ -23,7 +23,7 @@
 Step 1: Train ACGAN
 
 ~~~
-run main.ipynb
+run train_ACGAN.ipynb
 ~~~
 
 Step 2: Generate inversed images
