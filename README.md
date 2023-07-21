@@ -14,6 +14,14 @@
 
 
 
+
+
+## Other Related Code Repositories
+
+- WAFFLE: https://github.com/123000001212/WAFFLE
+- NC: https://github.com/123000001212/backdoor-toolbox
+- DeepInspect: https://github.com/123000001212/DeepInspect
+
 ## main.ipynb
 Asynchronous Federated Learning procedure where an adversary trains an ACGAN to generate inversed images.
 ## wm_gen.ipynb
