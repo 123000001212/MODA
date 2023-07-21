@@ -38,7 +38,7 @@ Step3: Attacks via unlearning
 run unlearning.ipynb
 ~~~
 
-NOTE: The experimental results of attack success rate and classification accuracy can be found in unlearning.ipynb
+NOTE: The experimental results of attack success rate and classification accuracy can be found in unlearning.ipynb.
 
 ## Other Related Code Repositories
 
