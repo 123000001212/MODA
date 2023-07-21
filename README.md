@@ -32,7 +32,7 @@ Step 2: Generate inversed images
 run wm_gen.ipynb
 ~~~
 
-Step3: Attacks
+Step3: Attacks via unlearning
 
 ~~~
 run unlearning.ipynb
