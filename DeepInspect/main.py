@@ -95,7 +95,7 @@ for epoch in range(args.train_gen_epoch):
         img,label=img.to(device),label.to(device)
         noise=torch.randn((img.shape[0],100)).to(device)
         G_out=gen(one_hot_label,noise)
-        D_out=model(img+G_out)
+        D_out=model(img+G_out) # model as discriminator
         L_trigger=NLLLoss(D_out,label)
         G_out_norm=torch.norm(G_out, p=1)/img.shape[0] - threshold
         L_pert=torch.max(torch.zeros_like(G_out_norm), G_out_norm)
