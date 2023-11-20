@@ -76,7 +76,7 @@ model=model.to(device)
 # Trigger Generation
 print('---Trigger Generation---')
 
-gen=Generator().to(device)
+gen=Generator().to(device) # generator
 optimizer = torch.optim.Adam(gen.parameters(), lr=1e-4)
 
 NLLLoss=nn.NLLLoss()
@@ -109,7 +109,7 @@ for epoch in range(args.train_gen_epoch):
         L_trigger_sum+=L_trigger.item()
         L_pert_sum+=L_pert.item()
         count_sum+=1
-    bdacc=test_gen_backdoor(gen,model,source_loader,target_class,device)
+    bdacc=test_gen_backdoor(gen,model,source_loader,target_class,device) # test the ASR of the generated trigger
     print(f'Epoch-{epoch}: Loss={round(Loss_sum/count_sum,3)}, L_trigger={round(L_trigger_sum/count_sum,3)}, L_pert={round(L_pert_sum/count_sum,3)}, ASR={round(bdacc*100,2)}%')
 
 # Model Patching
