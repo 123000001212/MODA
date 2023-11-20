@@ -83,25 +83,6 @@ wmtransform = transforms.Compose([
 ])
 watermarked_mnist = torchvision.datasets.ImageFolder(root='./data/CWAFFLE',transform=wmtransform)
 MWAFFLE_Loader=torch.utils.data.DataLoader(watermarked_mnist, batch_size =50, shuffle = True, num_workers = 0)
-'''
-def imShow(img):
-    img = img/2+0.5
-    npimg = img.numpy()
-    plt.imshow(np.transpose(npimg, (1,2,0)))
-    plt.show()
-for i, data in enumerate(MWAFFLE_Loader, 0):
-    inputs, labels = data
-    imShow(torchvision.utils.make_grid(inputs))
-    print(torch.min(inputs))
-    print(inputs.shape)
-    break
-for i, data in enumerate(testloader, 0):
-    inputs, labels = data
-    imShow(torchvision.utils.make_grid(inputs))
-    print(torch.min(inputs))
-    print(inputs.shape)
-    break
-'''
 
 
 # In[5]:
