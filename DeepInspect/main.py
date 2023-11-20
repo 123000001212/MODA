@@ -144,13 +144,13 @@ for img,label1 in source_set:
     patched_source_set.append((img,target_class))
 patched_source_loader=DataLoader(patched_source_set,batch_size=1000,shuffle=False)
 
-# test Clean Acc and ASR before cleanse
+# test Clean Acc and ASR before patching
 clean_acc=test(model,test_set,device)
 bd_acc=test_backdoor(model,patched_source_loader,device)
 print(f'Before Cleanse. Clean Acc:{round(clean_acc*100,2)}%, ASR:{round(bd_acc*100,2)}%')
 before_asr=bd_acc
 
-# cleanse for 10 epochs
+# Patching for 10 epochs
 for epoch in range(10):
     model.train()
     for i,(img,label) in enumerate(patched_loader):
@@ -163,5 +163,5 @@ for epoch in range(10):
     clean_acc=test(model,test_set,device)
     bd_acc=test_backdoor(model,patched_source_loader,device)
     print(f'Epoch-{epoch}. Clean Acc:{round(clean_acc*100,2)}%, ASR:{round(bd_acc*100,2)}%')
-# test Clean Acc and ASR after cleanse
+# test Clean Acc and ASR after patching
 print(f'After Cleanse. Clean Acc:{round(clean_acc*100,2)}%, ASR:{round(bd_acc*100,2)}%, Backdoor(Watermark) Removal Rate:{round((before_asr-bd_acc)*100,2)}%.')
