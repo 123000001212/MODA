@@ -1,0 +1,44 @@
+---Trigger Generation---
+Epoch-0: Loss=241.993, L_trigger=-9.012, L_pert=1255.027, ASR=95.4%
+Epoch-1: Loss=2.951, L_trigger=-51.884, L_pert=274.176, ASR=100.0%
+Epoch-2: Loss=-45.112, L_trigger=-99.625, L_pert=272.561, ASR=100.0%
+Epoch-3: Loss=-62.138, L_trigger=-114.972, L_pert=264.17, ASR=100.0%
+Epoch-4: Loss=-68.842, L_trigger=-120.013, L_pert=255.856, ASR=100.0%
+Epoch-5: Loss=-72.475, L_trigger=-122.412, L_pert=249.686, ASR=100.0%
+Epoch-6: Loss=-74.657, L_trigger=-123.751, L_pert=245.47, ASR=100.0%
+Epoch-7: Loss=-76.06, L_trigger=-124.72, L_pert=243.301, ASR=100.0%
+Epoch-8: Loss=-77.115, L_trigger=-125.445, L_pert=241.648, ASR=100.0%
+Epoch-9: Loss=-77.904, L_trigger=-125.921, L_pert=240.081, ASR=100.0%
+Epoch-10: Loss=-78.576, L_trigger=-126.403, L_pert=239.132, ASR=100.0%
+Epoch-11: Loss=-79.086, L_trigger=-126.697, L_pert=238.052, ASR=100.0%
+Epoch-12: Loss=-79.459, L_trigger=-126.996, L_pert=237.685, ASR=100.0%
+Epoch-13: Loss=-79.884, L_trigger=-127.261, L_pert=236.882, ASR=100.0%
+Epoch-14: Loss=-80.197, L_trigger=-127.421, L_pert=236.119, ASR=100.0%
+Epoch-15: Loss=-80.455, L_trigger=-127.645, L_pert=235.952, ASR=100.0%
+Epoch-16: Loss=-80.708, L_trigger=-127.806, L_pert=235.492, ASR=100.0%
+Epoch-17: Loss=-80.886, L_trigger=-127.949, L_pert=235.318, ASR=100.0%
+Epoch-18: Loss=-81.091, L_trigger=-128.1, L_pert=235.044, ASR=100.0%
+Epoch-19: Loss=-81.197, L_trigger=-128.207, L_pert=235.052, ASR=100.0%
+Epoch-20: Loss=-81.321, L_trigger=-128.333, L_pert=235.062, ASR=100.0%
+Epoch-21: Loss=-81.469, L_trigger=-128.426, L_pert=234.782, ASR=100.0%
+Epoch-22: Loss=-81.598, L_trigger=-128.49, L_pert=234.462, ASR=100.0%
+Epoch-23: Loss=-81.688, L_trigger=-128.541, L_pert=234.268, ASR=100.0%
+Epoch-24: Loss=-81.81, L_trigger=-128.649, L_pert=234.196, ASR=100.0%
+Epoch-25: Loss=-81.834, L_trigger=-128.679, L_pert=234.227, ASR=100.0%
+Epoch-26: Loss=-81.899, L_trigger=-128.728, L_pert=234.143, ASR=100.0%
+Epoch-27: Loss=-81.916, L_trigger=-128.756, L_pert=234.202, ASR=100.0%
+Epoch-28: Loss=-82.035, L_trigger=-128.808, L_pert=233.863, ASR=100.0%
+Epoch-29: Loss=-82.135, L_trigger=-128.842, L_pert=233.537, ASR=100.0%
+---Model Patching---
+Before Cleanse. Clean Acc:96.56%, ASR:99.13%
+Epoch-0. Clean Acc:87.65%, ASR:0.67%
+Epoch-1. Clean Acc:92.3%, ASR:0.0%
+Epoch-2. Clean Acc:93.1%, ASR:0.0%
+Epoch-3. Clean Acc:92.74%, ASR:0.13%
+Epoch-4. Clean Acc:94.03%, ASR:0.13%
+Epoch-5. Clean Acc:94.35%, ASR:0.6%
+Epoch-6. Clean Acc:94.31%, ASR:0.07%
+Epoch-7. Clean Acc:94.47%, ASR:0.13%
+Epoch-8. Clean Acc:94.39%, ASR:0.73%
+Epoch-9. Clean Acc:95.34%, ASR:0.4%
+After Cleanse. Clean Acc:95.34%, ASR:0.4%, Backdoor(Watermark) Removal Rate:98.73%.
