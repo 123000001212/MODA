@@ -163,4 +163,5 @@ for epoch in range(10):
     clean_acc=test(model,test_set,device)
     bd_acc=test_backdoor(model,patched_source_loader,device)
     print(f'Epoch-{epoch}. Clean Acc:{round(clean_acc*100,2)}%, ASR:{round(bd_acc*100,2)}%')
+# test Clean Acc and ASR after cleanse
 print(f'After Cleanse. Clean Acc:{round(clean_acc*100,2)}%, ASR:{round(bd_acc*100,2)}%, Backdoor(Watermark) Removal Rate:{round((before_asr-bd_acc)*100,2)}%.')
