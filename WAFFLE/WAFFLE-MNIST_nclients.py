@@ -102,7 +102,7 @@ for i, data in enumerate(testloader, 0):
 # In[5]:
 
 
-# 定义client类
+# 定义client类 / Definition of class client
 class client(object):
     def __init__(self, trainDataSet, dev):
         self.train_ds = trainDataSet
@@ -112,13 +112,13 @@ class client(object):
 
     def localUpdate(self, localEpoch, localBatchSize, Net, lossFun, global_parameters):
         '''
-            param: localEpoch 当前Client的迭代次数
-            param: localBatchSize 当前Client的batchsize大小
-            param: Net Server共享的模型
-            param: LossFun 损失函数
-            param: opti 优化函数
-            param: global_parmeters 当前通讯中的全局参数
-            return: 返回当前Client基于自己的数据训练得到的新的模型参数
+            param: localEpoch 当前Client的迭代次数 / current epoch of the client
+            param: localBatchSize 当前Client的batchsize大小 / current batchsize of the client
+            param: Net Server共享的模型 / shared model
+            param: LossFun 损失函数 / loss function
+            param: opti 优化函数 / optimizer
+            param: global_parmeters 当前通讯中的全局参数 / global parmeters
+            return: 返回当前Client基于自己的数据训练得到的新的模型参数 / New model parameters trained by the current client on their own data
         '''
         # 加载当前通信中最新全局参数 / Load the latest global parameters in the current communication
         # 传入网络模型，并加载global_parameters参数 / Load global_parameters
@@ -234,7 +234,7 @@ def train():
     for r in range(args.rounds):
         print('-- Round %2d -- | '%(r+1),end='')
         choice=[clients[i] for i in range(args.clients)] # n方 / n participants
-        num_clients=args.clients # 记得改这里
+        num_clients=args.clients 
         
         sum_parameters = None
         for c in choice:
