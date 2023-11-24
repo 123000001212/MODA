@@ -83,6 +83,7 @@ NLLLoss=nn.NLLLoss()
 MSELoss=nn.MSELoss()
 threshold=args.threshold
 
+# train generator
 for epoch in range(args.train_gen_epoch):
     gen.train()
     Loss_sum=0
