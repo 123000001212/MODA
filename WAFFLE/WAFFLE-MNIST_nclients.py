@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
+# This code is for WAFFLE with MNIST dataset, comments in this file are in both Chinese and English.
 
 # In[1]:
 
