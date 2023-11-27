@@ -1,7 +1,28 @@
 from __future__ import absolute_import, division, print_function
 import torch
 import torch.nn as nn
-import torchlib
+# import utils.torchlib.layers
+
+class NoOp(nn.Module):
+
+    def __init__(self, *args, **keyword_args):
+        super(NoOp, self).__init__()
+
+    def forward(self, x):
+        return x
+    
+class Reshape(nn.Module):
+
+    def __init__(self, *new_shape):
+        super(Reshape, self).__init__()
+        self._new_shape = new_shape
+
+    def forward(self, x):
+        new_shape = (x.size(i) if self._new_shape[i] == 0 else self._new_shape[i] for i in range(len(self._new_shape)))
+        return x.view(*new_shape)
+    
+def identity(x, *args, **keyword_args):
+    return x
 
 def _get_norm_fn_2d(norm):  # 2d
     if norm == 'batch_norm':
@@ -9,7 +30,7 @@ def _get_norm_fn_2d(norm):  # 2d
     elif norm == 'instance_norm':
         return nn.InstanceNorm2d
     elif norm == 'none':
-        return torchlib.NoOp
+        return NoOp
     else:
         raise NotImplementedError
         
@@ -19,7 +40,7 @@ def _get_weight_norm_fn(weight_norm):
     elif weight_norm == 'weight_norm':
         return torch.nn.utils.weight_norm
     elif weight_norm == 'none':
-        return torchlib.identity
+        return identity
     else:
         return NotImplementedError
 
@@ -90,7 +111,7 @@ class Discriminator(nn.Module):
             conv_norm_lrelu(dim * 2, dim * 2, kernel_size=1, stride=1, padding=0),  # (N, dim*2, 6, 6)
 
             nn.AvgPool2d(kernel_size=6),  # (N, dim*2, 1, 1)
-            torchlib.Reshape(-1, dim * 2),  # (N, dim*2)
+            Reshape(-1, dim * 2),  # (N, dim*2)
         )
 
         self.l_gan_logit = weight_norm_fn(nn.Linear(dim * 2, 1))  # (N, 1)
