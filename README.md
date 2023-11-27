@@ -34,7 +34,7 @@ run train_ACGAN.ipynb
 
 #### Step 2: Generate inversed images
 
-Modify the first row in the last cell to `for i in [x,x,x]:`, where x,x,x are the target labels of user watermarks. (DO NOT include the target label of adversary's watermark here).
+Modify the first row in the last cell of "wm_gen.ipynb" to `for i in [x, ... ,x]:`, where x, ... , x are the target labels of user watermarks. (DO NOT include the target label of adversary's watermark here).
 
 ~~~
 run wm_gen.ipynb
@@ -44,7 +44,7 @@ run wm_gen.ipynb
 
 Inspect corresponding watermark data images and its' target label (mytest.ipynb offers codes). 
 
-Modify X,Y,Z in 3 lines in the corresponding  cell: 
+Modify X,Y,Z in 3 lines in the corresponding  cell of "correct_label.ipynb": 
 
 - if i==X:
 
