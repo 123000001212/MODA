@@ -75,4 +75,4 @@ NOTE: The experimental results of attack success rate and classification accurac
 - DeepInspect: https://github.com/123000001212/DeepInspect
 
 
-These codes can be found in this repository as well. Results of these codes are presented at results.ipynb. 
+These codes can be found in this repository as well (in "Baselines" folder). Results of these codes are presented at results.ipynb. 
