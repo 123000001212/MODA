@@ -68,6 +68,10 @@ run unlearning.ipynb
 
 NOTE: The experimental results of attack success rate and classification accuracy can be found in unlearning.ipynb.
 
+## Results
+
+An example of our code results are presented at "results.ipynb".
+
 ## Other Related Code Repositories
 
 - WAFFLE: https://github.com/123000001212/WAFFLE
