@@ -6,15 +6,6 @@ import models.model_cifar10
 import models.model_vgg19
 
 def model_init(dataset, device):
-    # if dataset == 'MNIST':
-
-    #     latent_size = 128
-    #     hidden_size = 256
-    #     image_size = 784
-    #     D = models.model_mnist.Discriminator(image_size, hidden_size).to(device)
-    #     G = models.model_mnist.Generator(latent_size, hidden_size, image_size).to(device)
-    #     return D, G
-
     if dataset == 'FashionMNIST' or dataset == 'MNIST':
         latent_size = 128
         nb_classes = 10 
@@ -40,7 +31,5 @@ def model_init(dataset, device):
         latent_size = 128
         nb_classes = 10
         G = models.model_SVHN.OldGenerator(128, 128, 10).to(device)
-        #D = models.model_cifar10.ResNet18(num_classes=nb_classes).to(device)
         D = models.model_cifar10.AlexNet(3, nb_classes).to(device)
-        #D = models.model_vgg19.VGG_pretrained().to(device)
         return D, G

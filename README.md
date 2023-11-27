@@ -12,9 +12,9 @@
 
 ## Descriptions
 
-- train_ACGAN.ipynb: Asynchronous Federated Learning procedure where an adversary trains an ACGAN to generate inversed images.
-- wm_gen.ipynb: Generate inversed images by the generator of ACGAN.
-- unlearning.ipynb: Unlearning victims' watermarks.
+- train_ACGAN.py: Asynchronous Federated Learning procedure where an adversary trains an ACGAN to generate inversed images.
+- gen_inversed_wm.ipynb: Generate inversed images by the generator of ACGAN.
+- experiments.ipynb: Unlearning victims' watermarks and other baselines.
 - dataset_init.py: Initialize MNIST, CIFAR10, FashionMNIST, SVHN, and GTSRB datasets.
 - model_init.py: Define different model structures.
 
@@ -26,51 +26,25 @@ Modify all absolute paths in our code (e.g. "dataset_init.py") to the correct pa
 
 #### Step 1: Train ACGAN
 
+~~~
+python train_acgan.py
+~~~
+
 Stop when all watermark reach a high accuracy and "results/fake-image-x.png" show inversed triggers.
 
-~~~
-run train_ACGAN.ipynb
-~~~
-
-#### Step 2: Generate inversed images
-
-Modify the first row in the last cell of "wm_gen.ipynb" to `for i in [x, ... ,x]:`, where x, ... , x are the target labels of user watermarks. (DO NOT include the target label of adversary's watermark here).
+#### Step 2: Generate inversed watermarks
 
 ~~~
-run wm_gen.ipynb
+run gen_inversed_wm.ipynb
 ~~~
 
-#### Step 3: Correct labels of inversed trigger images
-
-Inspect corresponding watermark data images and its' target label (mytest.ipynb offers codes). 
-
-Modify X,Y,Z in 3 lines in the corresponding  cell of "correct_label.ipynb": 
-
-- if i==X:
-
-- wmdata.append((data,Y))
-
-- torch.save(wmdataset,"./inversed_wm_data/{DATASET}_{NUM_USERS}/userZ.pth")
-
-  ,where X is the order of label in folder "wm_{DATASET}" (start from 0), Y is the original label of images, Z is the serial number of users, which should be consistent with Line 197~208 in "dataset_init.py".
-
-Run the corresponding cell each time after you modify, until all label in "wm_{DATASET}" folder are processed.
-
-```
-run correct_label.ipynb
-```
-
-#### Step 4: Attacks via unlearning
+#### Step 3: Attacks via unlearning
 
 ~~~
-run unlearning.ipynb
+run experiments.ipynb
 ~~~
 
-NOTE: The experimental results of attack success rate and classification accuracy can be found in unlearning.ipynb.
-
-## Results
-
-An example of our code results are presented at "results.ipynb".
+NOTE: The experimental results of attack success rate and classification accuracy can be found in experiments.ipynb.
 
 ## Other Related Code Repositories
 
@@ -79,4 +53,4 @@ An example of our code results are presented at "results.ipynb".
 - DeepInspect: https://github.com/123000001212/DeepInspect
 
 
-These codes can be found in this repository as well (in "Baselines" folder). Results of these codes are presented at results.ipynb. 
+These codes can be found in this repository as well (in "Baselines" folder). Results of these codes are presented at experiments.ipynb. 
