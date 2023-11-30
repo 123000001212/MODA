@@ -18,6 +18,13 @@ import time
 
 os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 
+parser = argparse.ArgumentParser(description='MODA')
+parser.add_argument('--dataset', default='MNIST', help="datasets e.g. MNIST|SVHN|CIFAR10")
+parser.add_argument('--batch_size', default=128 ,type=int, help='batch size for target data')
+parser.add_argument('--num_epochs', default=10, type=float, help="number of epochs")
+parser.add_argument('--num_users', default=3, type=float, help="number of users")
+args = parser.parse_args()
+
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 print("Current Device " , device)
 
@@ -25,11 +32,11 @@ resul_dir = './results'
 if not os.path.exists(resul_dir):
     os.makedirs(resul_dir)
 
-batch_size = 128
-num_epochs = 1000
-num_users = 3
+batch_size = args.batch_size
+num_epochs = args.num_epochs
+num_users = args.num_users
+dataset = args.dataset
 nb_classes = 10
-dataset = 'MNIST'
 
 #dataset initialize
 clean_dataset, train_dataset, user_wm_dataset, test_dataset = dataset_init(dataset, num_users=num_users)

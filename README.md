@@ -27,7 +27,7 @@ Modify all absolute paths in our code (e.g. "dataset_init.py") to the correct pa
 #### Step 1: Train ACGAN
 
 ~~~
-python train_acgan.py
+python train_acgan.py --dataset="MNIST" --num_users=3
 ~~~
 
 Stop when all watermark reach a high accuracy and "results/fake-image-x.png" show inversed triggers.
@@ -41,7 +41,7 @@ run gen_inversed_wm.ipynb
 #### Step 3: Attacks via unlearning
 
 ~~~
-run experiments.ipynb
+python moda.py --dataset="MNIST" --num_users=3
 ~~~
 
 NOTE: The experimental results of attack success rate and classification accuracy can be found in experiments.ipynb.
