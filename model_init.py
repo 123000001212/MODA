@@ -1,3 +1,5 @@
+# Define different model structures.
+
 import models.model_mnist
 import models.model_SVHN
 import models.model_FashionMNIST

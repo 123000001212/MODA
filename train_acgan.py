@@ -1,3 +1,5 @@
+# Asynchronous Federated Learning procedure where an adversary trains an ACGAN to generate inversed images.
+
 import os
 from itertools import cycle
 

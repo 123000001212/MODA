@@ -1,3 +1,5 @@
+# Initialize MNIST, CIFAR10, FashionMNIST, SVHN, and GTSRB datasets.
+
 import copy
 import os
 from matplotlib.transforms import Transform
