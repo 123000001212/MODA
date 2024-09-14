@@ -55,3 +55,14 @@ NOTE: The experimental results of attack success rate and classification accurac
 
 
 These codes can be found in this repository as well (in "Baselines" folder). Results of these codes are presented at experiments.ipynb. 
+
+## Citation
+```
+@article{zhang2023moda,
+  title={MODA: model ownership deprivation attack in asynchronous federated learning},
+  author={Zhang, Xiaoyu and Lin, Shen and Chen, Chao and Chen, Xiaofeng},
+  journal={IEEE Transactions on Dependable and Secure Computing},
+  year={2023},
+  publisher={IEEE}
+}
+```
